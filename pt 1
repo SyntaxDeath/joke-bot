@@ -1,0 +1,22 @@
+import discord
+import os
+import requests
+
+client = discord.Client()
+
+
+@client.event
+async def on_message(message):
+  if message.author == client.user:
+    return
+    
+
+  if message.content.startswith('!fhello'):
+    await message.channel.send('Hello, im funny man and im here to make you laugh!')
+    
+  if message.content.startswith('!fowner'):
+    await message.channel.send('Im owned by Syntax death!')
+
+
+
+client.run(os.getenv('TOKEN'))
