@@ -1,0 +1,30 @@
+import discord
+import os
+import requests
+import random
+
+client = discord.Client()
+
+idk = ['door', 'camera', 'dog']
+joke = ['ur life', 'my life','im not creative *laugh']
+
+@client.event
+async def on_message(message):
+  if message.author == client.user:
+    return
+
+  if message.content.startswith('!ffoop'):
+    await message.channel.send(random.choice(idk))
+
+  if message.content.startswith('!fjoke'):
+    await message.channel.send(random.choice(joke))
+
+  if message.content.startswith('!fhello'):
+    await message.channel.send('Hello, im funny man and im here to make you laugh!')
+    
+  if message.content.startswith('!fowner'):
+    await message.channel.send('Im owned by Syntax death!')
+
+
+
+client.run(os.getenv('TOKEN'))
